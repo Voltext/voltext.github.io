@@ -108,7 +108,7 @@ function main() {
     if (!twitch.isAuthenticated()) {
         twitch.authentication();
     } else {
-        alert("The user authorized the application!")
+        alert("Connexion ok")
         
         const params = getUrlParams();
         
