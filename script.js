@@ -67,7 +67,7 @@ function twitchAuthentification() {
         client_id: CLIENT_ID,
         redirect_uri: REDIRECT_URI,
         response_type: "token",
-        scope: SCOPES.join(" "),
+        scope: SCOPES,
     };
     location.href = `${TWITCH_OAUTH_URL}?${encodeQueryString(params)}`;
 }
