@@ -80,7 +80,7 @@ function twitchIsAuthenticated() {
 
 
 function main() {
-    if (!twitch.isAuthenticated()) {
+    if (!twitchIsAuthenticated()) {
         twitchAuthentification();
     }
     const params = getUrlQueryStringParams();
