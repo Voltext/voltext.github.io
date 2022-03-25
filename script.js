@@ -4,7 +4,7 @@ const REDIRECT_URI = "https://voltext.github.io/";
 const RESPONSE_TYPE = "token";
 const SCOPES = [
     "user:read:email",
-    "channel:read:redemptions"
+    "channel:read:redemptions",
 ].join(" ");
 
 function encodeQueryString(params) {
@@ -18,7 +18,7 @@ function encodeQueryString(params) {
 
 function getUrlQueryStringParams() {
     const items = location.hash.slice(1).split("&");
-    const params = [];
+    const params = {};
 
     for (let i in items) {
         let key = decodeURIComponent(items[i].split("=")[0]);
@@ -29,7 +29,7 @@ function getUrlQueryStringParams() {
     return params;
 }
 
-function makeGetJsonRequest(url, params = null, headers = null) {
+function makeGetJsonRequest(url, params=null, headers=null) {
     if (params) {
         url = `${url}?${encodeQueryString(params)}`;
     }
@@ -37,7 +37,7 @@ function makeGetJsonRequest(url, params = null, headers = null) {
     return new Promise((resolve, reject) => {
         var xhr = new XMLHttpRequest();
 
-        xhr.onreadystatechange = function () {
+        xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 try {
                     const responseJson = JSON.parse(xhr.responseText);
@@ -66,7 +66,7 @@ function twitchAuthentification() {
     const params = {
         client_id: CLIENT_ID,
         redirect_uri: REDIRECT_URI,
-        response_type: "token",
+        response_type: RESPONSE_TYPE,
         scope: SCOPES,
     };
     location.href = `${TWITCH_OAUTH_URL}?${encodeQueryString(params)}`;
@@ -87,7 +87,7 @@ function main() {
     const params = getUrlQueryStringParams();
 
     makeGetJsonRequest("https://api.twitch.tv/helix/channel_points/custom_rewards", {
-            "broadcaster_id": "727375071",
+            "broadcaster_id": "116080952",
         }, {
             "client-id": CLIENT_ID,
             "Authorization": `Bearer ${params.access_token}`,
