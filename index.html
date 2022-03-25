@@ -48,6 +48,7 @@
                 )
                 .then(resp => resp.json())
                 .then(resp => {
+                    console.log(access_token);
                     document.getElementById('user_data').innerHTML = '<p>Your Twitch Profile from Helix:</p>';
                     var table = document.createElement('table');
                     document.getElementById('user_data').append(table);
