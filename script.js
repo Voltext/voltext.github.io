@@ -110,7 +110,7 @@ function main() {
     } else {
         alert("Connexion ok")
         
-        const params = getUrlParams();
+        const params = helpers.getUrlParams();
         
         helpers.makeGetJsonRequest("https://api.twitch.tv/helix/channel_points/custom_rewards", {
             "broadcaster_id": 727375071,
