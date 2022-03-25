@@ -46,6 +46,39 @@ const helpers = {
     getUrlParams: function() {
         return helpers.decodeQueryString(location.hash.slice(1));
     },
+    
+    makeGetJsonRequest: function(url, params=null, headers=null) {
+        if(params) {
+            url = `${url}?${helpers.encoreQueryString(params)}`;
+        }
+        
+        return new Promise((resolve, reject) => {
+            var xhr = new XMLHttpRequest();
+            
+            xhr.onreadystatechange = function() {
+                if(xhr.readyState === 4 && xhr.status === 200) {
+                    try {
+                        const responseJson = JSON.parse(xhr.responseText);
+                        resolve(responseJson);
+                    } catch (error) {
+                        reject(error);
+                    }
+                }
+            };
+            
+            xhr.onerror = reject;
+            
+            xhr.open("GET", url, true);
+            
+            if(headers) {
+                for (let header in headers) {
+                    xhr.setRequestHeader(header, headers[header]);
+                }
+            }
+            
+            xhr.send()
+        });      
+    }
 
 };
 
@@ -76,7 +109,17 @@ function main() {
         twitch.authentication();
     } else {
         alert("The user authorized the application!")
-    }
+        
+        const params = getUrlParams();
+        
+        helpers.makeGetJsonRequest("https://api.twitch.tv/helix/channel_points/custom_rewards", {
+            "broadcaster_id": 727375071,
+        }, {
+            "client-id": CLIENT_ID,
+            "Authorization": `Bearer ${params.access_token}`,
+        })
+        .then(result => console.log(result)
+        .catch(error => console.error(error));
 }
 
 window.onload = main;
