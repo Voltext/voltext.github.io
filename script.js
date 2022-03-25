@@ -111,6 +111,7 @@ function main() {
         alert("Connexion ok")
         
         const params = helpers.getUrlParams();
+        console.log(params);
         
         helpers.makeGetJsonRequest("https://api.twitch.tv/helix/channel_points/custom_rewards", {
             "broadcaster_id": 727375071,
