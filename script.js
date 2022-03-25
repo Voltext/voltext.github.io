@@ -118,7 +118,7 @@ function main() {
             "client-id": CLIENT_ID,
             "Authorization": `Bearer ${params.access_token}`,
         })
-        .then(result => console.log(result)
+        .then(result => console.log(result))
         .catch(error => console.error(error));
 }
 
