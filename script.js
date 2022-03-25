@@ -10,7 +10,7 @@ const SCOPES = [
 function encodeQueryString(params) {
     let items = []
     for (let key in params) {
-        let value = encoreURIComponent(params[key]);
+        let value = encodeURIComponent(params[key]);
         items.push(`${key}=${value}`);
     }
     return items.join("&");
