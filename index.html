@@ -24,7 +24,7 @@
         var client_id = '9hfoauyntbncj2cmnpvg28rd89j7er';
         var redirect = 'https://voltext.github.io/';
 
-        document.getElementById('authorize_public').setAttribute('href', 'https://id.twitch.tv/oauth2/authorize?client_id=' + client_id + '&redirect_uri=' + encodeURIComponent(redirect) + '&response_type=token&force_verify=true');
+        document.getElementById('authorize_public').setAttribute('href', 'https://id.twitch.tv/oauth2/authorize?client_id=' + client_id + '&redirect_uri=' + encodeURIComponent(redirect) + '&response_type=code&scope=user:read:email');
         document.getElementById('authorize_email').setAttribute('href', 'https://id.twitch.tv/oauth2/authorize?client_id=' + client_id + '&redirect_uri=' + encodeURIComponent(redirect) + '&response_type=token&scope=channel:read:redemptions&force_verify=true');
         document.getElementById('access_token').textContent = '';
 
