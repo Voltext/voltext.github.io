@@ -83,6 +83,7 @@ function main() {
     if (!twitchIsAuthenticated()) {
         twitchAuthentification();
     }
+    console.log("Connecté");
     const params = getUrlQueryStringParams();
 
     makeGetJsonRequest("https://api.twitch.tv/helix/channel_points/custom_rewards", {
