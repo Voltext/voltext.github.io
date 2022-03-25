@@ -49,7 +49,7 @@ const helpers = {
     
     makeGetJsonRequest: function(url, params=null, headers=null) {
         if(params) {
-            url = `${url}?${helpers.encoreQueryString(params)}`;
+            url = `${url}?${helpers.encodeQueryString(params)}`;
         }
         
         return new Promise((resolve, reject) => {
