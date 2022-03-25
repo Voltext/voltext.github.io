@@ -87,7 +87,7 @@ function main() {
     const params = getUrlQueryStringParams();
 
     makeGetJsonRequest("https://api.twitch.tv/helix/channel_points/custom_rewards", {
-            "broadcaster_id": "116080952",
+            "broadcaster_id": "727375071",
         }, {
             "client-id": CLIENT_ID,
             "Authorization": `Bearer ${params.access_token}`,
