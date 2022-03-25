@@ -120,6 +120,7 @@ function main() {
         })
         .then(result => console.log(result))
         .catch(error => console.error(error));
+    }
 }
 
 window.onload = main;
