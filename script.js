@@ -1,7 +1,7 @@
 const TWITCH_OAUTH_URL = "https://id.twitch.tv/oauth2/authorize";
-const CLIENT_ID = "9hfoauyntbncj2cmnpvg28rd89j7er";  //9hfoauyntbncj2cmnpvg28rd89j7er. u713a9jtfrxyednavxtxmzdx7hd6g6
+const CLIENT_ID = "9hfoauyntbncj2cmnpvg28rd89j7er";
 const REDIRECT_URI = "https://voltext.github.io/";
-const RESPONSE_TYPE = "code";
+const RESPONSE_TYPE = "token";
 const SCOPES = [
     "user:read:email",
     "channel:read:redemptions",
@@ -69,20 +69,19 @@ function twitchAuthentification() {
         response_type: RESPONSE_TYPE,
         scope: SCOPES,
     };
-    location.href = `${TWITCH_OAUTH_URL}/login.html?${encodeQueryString(params)}`;
+    location.href = `${TWITCH_OAUTH_URL}?${encodeQueryString(params)}`;
 }
 
 function twitchIsAuthenticated() {
     const params = getUrlQueryStringParams();
-    if (params.code !== undefined) return true;
-    console.log(params)
+    if (params.access_token !== undefined) return true;
     return false;
 }
 
 
 function main() {
-    if(!twitchIsAuthenticated()) {
-       twitchAuthentification();
+    if (!twitchIsAuthenticated()) {
+        twitchAuthentification();
     }
     console.log("Connecté");
     const params = getUrlQueryStringParams();
@@ -91,7 +90,7 @@ function main() {
             "broadcaster_id": 727375071,
         }, {
             "client-id": CLIENT_ID,
-            "Authorization": `Bearer ${params.code}`,
+            "Authorization": `Bearer ${params.access_token}`,
         })
         .then(result => console.log(result))
         .catch(error => console.error(error));
