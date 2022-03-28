@@ -2,6 +2,7 @@ const TWITCH_OAUTH_URL = "https://id.twitch.tv/oauth2/authorize";
 const CLIENT_ID = "9hfoauyntbncj2cmnpvg28rd89j7er";
 const REDIRECT_URI = "https://voltext.github.io/";
 const RESPONSE_TYPE = "token";
+const TOKEN = "9c3pmcn1m28hnfgfdttmokof138qnz"
 const SCOPES = [
     "user:read:email",
     "channel:read:redemptions",
@@ -91,7 +92,7 @@ function main() {
             "broadcaster_id": 727375071,
         }, {
             "client-id": CLIENT_ID,
-            "Authorization": `Bearer ${params.access_token}`,
+            "Authorization": `Bearer ${TOKEN}`,
         })
         .then(result => console.log(result))
         .catch(error => console.error(error));
