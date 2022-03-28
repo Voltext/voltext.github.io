@@ -74,7 +74,7 @@ function twitchAuthentification() {
 
 function twitchIsAuthenticated() {
     const params = getUrlQueryStringParams();
-    if (params.access_token !== undefined) return true;
+    if (params.code !== undefined) return true;
     return false;
 }
 
