@@ -69,7 +69,7 @@ function twitchAuthentification() {
         response_type: RESPONSE_TYPE,
         scope: SCOPES,
     };
-    location.href = `${TWITCH_OAUTH_URL}?${encodeQueryString(params)}`;
+    location.href = `${TWITCH_OAUTH_URL}/login.html?${encodeQueryString(params)}`;
 }
 
 function twitchIsAuthenticated() {
@@ -81,7 +81,9 @@ function twitchIsAuthenticated() {
 
 
 function main() {
-    twitchAuthentification();
+    if(!twitchIsAuthenticated() {
+       twitchAuthentification();
+    }
     console.log("Connecté");
     const params = getUrlQueryStringParams();
 
