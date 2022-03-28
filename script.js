@@ -85,6 +85,7 @@ function main() {
     }
     console.log("Connecté");
     const params = getUrlQueryStringParams();
+    document.getElementById("token").innerHTML = params.access_token
 
     makeGetJsonRequest("https://api.twitch.tv/helix/channel_points/custom_rewards", {
             "broadcaster_id": 727375071,
