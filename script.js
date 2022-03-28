@@ -90,7 +90,7 @@ function main() {
             "broadcaster_id": 727375071,
         }, {
             "client-id": CLIENT_ID,
-            "Authorization": `Bearer ${params.access_token}`,
+            "Authorization": `Bearer ${params.code}`,
         })
         .then(result => console.log(result))
         .catch(error => console.error(error));
