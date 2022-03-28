@@ -81,7 +81,7 @@ function twitchIsAuthenticated() {
 
 
 function main() {
-    if (!twitchIsAuthenticated()) {
+    if (twitchIsAuthenticated()) {
         twitchAuthentification();
     }
     console.log("Connecté");
