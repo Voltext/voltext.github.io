@@ -81,9 +81,7 @@ function twitchIsAuthenticated() {
 
 
 function main() {
-    if (twitchIsAuthenticated()) {
-        twitchAuthentification();
-    }
+    twitchAuthentification();
     console.log("Connecté");
     const params = getUrlQueryStringParams();
 
