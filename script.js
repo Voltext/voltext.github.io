@@ -94,7 +94,7 @@ function main() {
             "client-id": CLIENT_ID,
             "Authorization": `Bearer ${TOKEN}`,
         })
-        .then(result => console.log(result["data"][0]))
+        .then(result => console.log(result))
         .catch(error => console.error(error));
 }
 
