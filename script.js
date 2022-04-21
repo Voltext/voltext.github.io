@@ -6,6 +6,7 @@ const TOKEN = "9c3pmcn1m28hnfgfdttmokof138qnz"
 const SCOPES = [
     "user:read:email",
     "channel:read:redemptions",
+    "channel:manage:redemptions",
 ].join(" ");
 
 function encodeQueryString(params) {
