@@ -7,6 +7,9 @@ const SCOPES = [
     "user:read:email",
     "channel:read:redemptions",
     "channel:manage:redemptions",
+    "channel:read:subscriptions",
+    "channel:manage:predictions",
+    "channel:read:predictions",
 ].join(" ");
 
 function encodeQueryString(params) {
