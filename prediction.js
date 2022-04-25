@@ -1,1 +1,1 @@
-console.log(process.env.TOKEN)
+document.getElementById("token").innerHTML = process.env.TOKEN
