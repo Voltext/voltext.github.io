@@ -1,1 +1,2 @@
-document.getElementById("token").innerHTML = process.env.TOKEN
+request('dotenv').config();
+document.getElementById("ptoken").innerHTML = process.env.TOKEN
