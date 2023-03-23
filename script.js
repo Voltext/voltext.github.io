@@ -1,5 +1,5 @@
 const TWITCH_OAUTH_URL = "https://id.twitch.tv/oauth2/authorize";
-const CLIENT_ID = "u713a9jtfrxyednavxtxmzdx7hd6g6"; //u713a9jtfrxyednavxtxmzdx7hd6g6 : Sowdred // 9hfoauyntbncj2cmnpvg28rd89j7er : Voltext
+const CLIENT_ID = "9hfoauyntbncj2cmnpvg28rd89j7er"; //u713a9jtfrxyednavxtxmzdx7hd6g6 : Sowdred // 9hfoauyntbncj2cmnpvg28rd89j7er : Voltext
 const REDIRECT_URI = "https://voltext.github.io/";
 const RESPONSE_TYPE = "token";
 const TOKEN = "9c3pmcn1m28hnfgfdttmokof138qnz"
